@@ -6,13 +6,13 @@
 #    By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:37:13 by hyenam            #+#    #+#              #
-#    Updated: 2021/04/07 17:28:21 by hyenam           ###   ########.fr        #
+#    Updated: 2021/04/07 17:51:35 by hyenam           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 HEADER = ft_printf.h
-LIBFT		= ../libft
+LIBFT		= ./libft
 LIB_PATH	= libft.a
 CFLAGS = -Wall -Werror -Wextra
 INC = -I.

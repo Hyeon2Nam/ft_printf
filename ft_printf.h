@@ -6,14 +6,14 @@
 /*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 17:49:10 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/07 15:36:19 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/07 17:51:00 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../libft/libft.h"
+# include "./libft/libft.h"
 # include <stdlib.h>
 # include <stdarg.h>
 # include <unistd.h>

@@ -6,14 +6,14 @@
 #    By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:37:13 by hyenam            #+#    #+#              #
-#    Updated: 2021/04/07 12:43:23 by hyenam           ###   ########.fr        #
+#    Updated: 2021/04/07 17:28:21 by hyenam           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 HEADER = ft_printf.h
 LIBFT		= ../libft
-LIBFT_LIB	= libft.a
+LIB_PATH	= libft.a
 CFLAGS = -Wall -Werror -Wextra
 INC = -I.
 CC = gcc
@@ -32,7 +32,7 @@ all : ${NAME}
 
 $(NAME) : $(OBJS)
 	make all -C $(LIBFT)/
-	cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
+	cp $(LIBFT)/$(LIB_PATH) $(NAME)
 	$(AR) $(NAME) $(OBJS)
 
 %.o: %.c $(HEADER)
@@ -40,11 +40,11 @@ $(NAME) : $(OBJS)
 
 clean:
 	$(RM) $(OBJS) 
-	make clean -C ../libft/
+	make clean -C $(LIB_PATH)/
 
 fclean: clean
 	$(RM) $(NAME) 
-	make fclean -C ../libft/
+	make fclean -C $(LIB_PATH)/
 
 re: fclean all
 

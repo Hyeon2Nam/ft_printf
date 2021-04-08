@@ -6,7 +6,7 @@
 /*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 12:17:43 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/07 16:42:02 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/08 16:37:07 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,30 +38,33 @@ int		ft_len(unsigned long long value)
 	return (res);
 }
 
-void	ft_change_base(unsigned long long n, char c, char **num)
+char	*ft_change_base(unsigned long long n, char c)
 {
 	int	r;
 	int	len;
 	int	i;
+	char	*new_num;
+
 
 	len = ft_len(n);
-	*num = (char *)malloc(sizeof(char) * (len + 1));
-	if (!num)
-		return ;
+	new_num = (char *)malloc(sizeof(char) * (len + 1));
+	if (!new_num)
+		return (NULL);
 	i = 1;
-	(*num)[len] = 0;
 	if (n == 0)
-		*num = ft_zero();
+		new_num = ft_zero();
 	while (n > 0)
 	{
 		r = n % g_option.base;
 		n /= g_option.base;
 		if (r < 10)
-			(*num)[len - i] = r + '0';
+			new_num[len - i] = r + '0';
 		else
-			(*num)[len - i] = r - 10 + c;
+			new_num[len - i] = r - 10 + c;
 		i++;
 	}
+	new_num[len] = 0;
+	return (new_num);
 }
 
 void	put_left_width(char *n, int len)

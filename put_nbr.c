@@ -6,7 +6,7 @@
 /*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 13:46:09 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/07 16:45:32 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/08 16:39:56 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ char	*ft_zero(void)
 
 void	set_width(char *n, int len)
 {
-	if (g_option.pre >= 0)
-		g_option.zero = 0;
 	if (g_option.minus)
 		put_left_width(n, len);
 	else
@@ -51,12 +49,12 @@ char	*set_pre(char *n, int len)
 		if (!new_num)
 			return (NULL);
 		i = 0;
-		new_num[g_option.pre] = 0;
 		while (len + i < g_option.pre)
 			new_num[i++] = '0';
 		j = 0;
 		while (j < len)
 			new_num[i++] = n[j++];
+		new_num[g_option.pre] = 0;
 		return (new_num);
 	}
 	else
@@ -88,7 +86,7 @@ void	put_nbr(unsigned long long n)
 	}
 	if (g_option.type == 'X')
 		cl = 'A';
-	ft_change_base(n, cl, &num);
+	num = ft_change_base(n, cl);
 	num = set_pre(num, ft_strlen(num));
 	if (g_option.type == 'p')
 		ft_pointer_address(&num);

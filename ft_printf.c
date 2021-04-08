@@ -6,18 +6,18 @@
 /*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 21:49:41 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/07 15:09:34 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/08 16:39:43 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int g_result;
-t_option g_option;
+int			g_result;
+t_option	g_option;
 
-void	print_str(va_list ap)
+void	print_ap(va_list ap)
 {
-	if (g_option.zero == 1 && g_option.minus == 1)
+	if ((g_option.zero == 1 && g_option.minus == 1) || g_option.pre >= 0)
 		g_option.zero = 0;
 	if (g_option.type == 'c')
 		put_char(va_arg(ap, int));
@@ -52,7 +52,6 @@ void	set_pre_width(char *str, int i, va_list ap)
 			{
 				g_option.minus = 1;
 				g_option.width *= -1;
-				g_option.zero = 0;
 			}
 		}
 		else
@@ -60,11 +59,11 @@ void	set_pre_width(char *str, int i, va_list ap)
 	}
 }
 
-void	set_g_option(char *str, int i, va_list ap)
+void	set_option(char *str, int i, va_list ap)
 {
 	if (str[i] == '-')
 		g_option.minus = 1;
-	if (str[i] == '0' && g_option.pre == -1 && g_option.width == 0)
+	if (str[i] == '0')
 		g_option.zero = 1;
 	if (str[i] == '.')
 		g_option.pre = 0;
@@ -86,14 +85,14 @@ void	do_printf(char *str, va_list ap)
 				ft_strchr(TYPES, str[i]) || str[i] == '%'))
 			{
 				if (ft_strchr(OPTIONS, str[i]))
-					set_g_option(str, i, ap);
+					set_option(str, i, ap);
 				else
 				{
 					g_option.type = str[i];
 					break ;
 				}
 			}
-			print_str(ap);
+			print_ap(ap);
 		}
 		else
 			g_result += ft_putchar_fd(str[i]);

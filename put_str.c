@@ -6,7 +6,7 @@
 /*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 19:02:58 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/07 15:17:20 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/08 16:26:05 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ void	put_blank_str(char *s)
 
 	len = (int)ft_strlen(s);
 	if (g_option.width < len)
-	{
 		g_option.width = len;
-	}
 	width = g_option.width - len + 1;
 	put_blank_zero(width, g_option.zero);
 }
@@ -32,7 +30,7 @@ void	put_str(char *str)
 
 	if (str == NULL)
 		str = "(null)";
-	if (g_option.pre != 0 && g_option.pre < 0)
+	if (g_option.pre < 0)
 		g_option.pre = ft_strlen(str);
 	s = (char *)malloc(sizeof(char) * (g_option.pre + 1));
 	ft_strlcpy(s, str, g_option.pre + 1);

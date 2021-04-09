@@ -6,7 +6,7 @@
 /*   By: hyenam <hyenam@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 21:49:41 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/09 17:42:59 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/09 18:46:45 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	set_option(char *str, int i, va_list ap)
 {
 	if (str[i] == '-')
 		g_option.minus = 1;
-	if (str[i] == '0' && g_option.pre != 0)
+	if (str[i] == '0' && g_option.pre != 0 && g_option.width == 0)
 		g_option.zero = 1;
 	if (str[i] == '.')
 		g_option.pre = 0;

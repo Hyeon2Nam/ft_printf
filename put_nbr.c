@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_nbr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
+/*   By: hyenam <hyenam@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 13:46:09 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/09 12:50:40 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/09 14:36:48 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ char	*ft_zero(void)
 	char	*num;
 	int		i;
 
-	if (g_option.zero && g_option.pre < 0 && g_option.width > 0)
+	if (g_option.zero && g_option.width > 0)
 		g_option.pre = g_option.width;
 	if (g_option.pre < 0)
 		g_option.pre = 1;
 	num = (char *)malloc(sizeof(char) * (g_option.pre + 1));
-	num[g_option.pre] = 0;
 	i = 0;
 	while (i < g_option.pre)
 		num[i++] = '0';
+	num[g_option.pre] = 0;
 	return (num);
 }
 

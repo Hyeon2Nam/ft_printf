@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+         #
+#    By: hyenam <hyenam@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:37:13 by hyenam            #+#    #+#              #
-#    Updated: 2021/04/08 17:05:15 by hyenam           ###   ########.fr        #
+#    Updated: 2021/04/09 14:17:07 by hyenam           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 HEADER = ft_printf.h
-LIBFT		= ./libft
-LIB_PATH	= libft
+LIB_PATH	= ./libft
+LIBFT		= libft.a
 CFLAGS = -Wall -Werror -Wextra
 INC = -I.
 CC = gcc
@@ -31,8 +31,8 @@ OBJS = $(SRCS:.c=.o)
 all : ${NAME}
 
 $(NAME) : $(OBJS)
-	make all -C $(LIBFT)/
-	cp $(LIBFT)/$(LIB_PATH) $(NAME)
+	make all -C $(LIB_PATH)/
+	cp $(LIB_PATH)/$(LIBFT) $(NAME)
 	$(AR) $(NAME) $(OBJS)
 
 %.o: %.c $(HEADER)

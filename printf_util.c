@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf_util.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
+/*   By: hyenam <hyenam@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 12:17:43 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/09 12:49:19 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/09 14:23:53 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ char	*ft_change_base(unsigned long long n, char cl)
 	int		len;
 	int		i;
 	char	*new_num;
-
 
 	len = ft_len(n);
 	new_num = (char *)malloc(sizeof(char) * (len + 1));
@@ -93,7 +92,7 @@ void	put_right_width(char *n, int len)
 			put_blank_zero(g_option.width, 0);
 		ft_putchar_fd('-');
 		if (g_option.zero)
-			put_blank_zero(g_option.width, g_option.zero);
+			put_blank_zero(g_option.width, 1);
 		g_result++;
 	}
 	else

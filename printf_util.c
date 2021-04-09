@@ -6,7 +6,7 @@
 /*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 12:17:43 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/08 16:37:07 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/09 12:49:19 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int		ft_len(unsigned long long value)
 	return (res);
 }
 
-char	*ft_change_base(unsigned long long n, char c)
+char	*ft_change_base(unsigned long long n, char cl)
 {
-	int	r;
-	int	len;
-	int	i;
+	int		r;
+	int		len;
+	int		i;
 	char	*new_num;
 
 
@@ -50,9 +50,9 @@ char	*ft_change_base(unsigned long long n, char c)
 	new_num = (char *)malloc(sizeof(char) * (len + 1));
 	if (!new_num)
 		return (NULL);
-	i = 1;
 	if (n == 0)
 		new_num = ft_zero();
+	i = 1;
 	while (n > 0)
 	{
 		r = n % g_option.base;
@@ -60,7 +60,7 @@ char	*ft_change_base(unsigned long long n, char c)
 		if (r < 10)
 			new_num[len - i] = r + '0';
 		else
-			new_num[len - i] = r - 10 + c;
+			new_num[len - i] = r - 10 + cl;
 		i++;
 	}
 	new_num[len] = 0;

@@ -6,7 +6,7 @@
 /*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 13:46:09 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/08 16:39:56 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/09 12:50:40 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ void	set_width(char *n, int len)
 		put_right_width(n, len);
 }
 
+void	ft_pointer_address(char **num)
+{
+	int len;
+
+	*num = ft_strjoin("0x", *num);
+	len = ft_strlen(*num);
+	set_width(*num, len);
+}
+
 char	*set_pre(char *n, int len)
 {
 	char	*new_num;
@@ -61,19 +70,10 @@ char	*set_pre(char *n, int len)
 		return (n);
 }
 
-void	ft_pointer_address(char **num)
-{
-	int len;
-
-	*num = ft_strjoin("0x", *num);
-	len = ft_strlen(*num);
-	set_width(*num, len);
-}
-
 void	put_nbr(unsigned long long n)
 {
 	int		len;
-	int		cl;
+	char	cl;
 	char	*num;
 
 	cl = 'a';

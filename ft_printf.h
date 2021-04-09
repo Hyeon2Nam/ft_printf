@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
+/*   By: hyenam <hyenam@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 17:49:10 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/08 16:36:53 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/09 17:22:21 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "./libft/libft.h"
 # include <stdlib.h>
+# include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
 

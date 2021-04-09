@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
+/*   By: hyenam <hyenam@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 21:49:41 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/08 16:39:43 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/09 17:42:59 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@ t_option	g_option;
 
 void	print_ap(va_list ap)
 {
-	if ((g_option.zero == 1 && g_option.minus == 1) || g_option.pre >= 0)
+	if ((g_option.zero == 1 && g_option.minus == 1) ||
+		(g_option.type != '%' && g_option.pre >= 0))
 		g_option.zero = 0;
 	if (g_option.type == 'c')
 		put_char(va_arg(ap, int));
 	else if (g_option.type == 's')
 		put_str(va_arg(ap, char *));
 	else if (g_option.type == '%')
-		put_str("%");
+		put_char('%');
 	else if (g_option.type == 'd' || g_option.type == 'i')
 		put_nbr(va_arg(ap, int));
 	else if (g_option.type == 'u' || g_option.type == 'x'
@@ -63,7 +64,7 @@ void	set_option(char *str, int i, va_list ap)
 {
 	if (str[i] == '-')
 		g_option.minus = 1;
-	if (str[i] == '0')
+	if (str[i] == '0' && g_option.pre != 0)
 		g_option.zero = 1;
 	if (str[i] == '.')
 		g_option.pre = 0;

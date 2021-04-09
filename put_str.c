@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
+/*   By: hyenam <hyenam@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 19:02:58 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/09 12:43:26 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/09 17:02:10 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	put_str(char *str)
 	if (g_option.pre < 0)
 		g_option.pre = ft_strlen(str);
 	s = (char *)malloc(sizeof(char) * (g_option.pre + 1));
+	if (!s)
+		return ;
 	ft_strlcpy(s, str, g_option.pre + 1);
 	if (g_option.minus == 1)
 	{

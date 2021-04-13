@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyenam <hyenam@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: hyenam <hyeon@student.42seoul.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 21:49:41 by hyenam            #+#    #+#             */
-/*   Updated: 2021/04/09 18:46:45 by hyenam           ###   ########.fr       */
+/*   Updated: 2021/04/11 19:26:42 by hyenam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,14 @@ void	do_printf(char *str, va_list ap)
 				if (ft_strchr(OPTIONS, str[i]))
 					set_option(str, i, ap);
 				else
-				{
 					g_option.type = str[i];
-					break ;
-				}
 			}
 			print_ap(ap);
 		}
 		else
 			g_result += ft_putchar_fd(str[i]);
+		if (str[i] == 0)
+			break ;
 	}
 }
 
